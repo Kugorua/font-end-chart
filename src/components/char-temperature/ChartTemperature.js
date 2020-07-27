@@ -94,7 +94,6 @@ export default class ApexChart extends React.Component {
     return (
       <div className="chart-temperature">
         <div id="chart">
-          {console.log("c1", this.state.series)}
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}

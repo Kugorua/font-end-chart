@@ -35,7 +35,6 @@ export default function ControlChart() {
         <h2>CONTROL</h2>
 
         <div className="control-content">
-          {console.log("c2", infor.doam)}
           <div className="control-content__service">
             {" "}
             <div className="control-chart__pan">

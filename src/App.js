@@ -1,48 +1,32 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import ChartHumidity from "./components/chart-humidity/ChartHumidity";
-import ChartTemperature from "./components/char-temperature/ChartTemperature";
-import TaskBar from "./components/taskbar/TaskBar";
-import Infor from "./components/infor/Infor";
-import ControlChart from "./components/control-chart/ControlChart";
-import ChartAirHumidity from "./components/chart-air-humidity/ChartAirHumidity";
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOption: "dashboard",
-    };
-  }
-  option = (a) => {
-    this.setState({ isOption: a });
+import Home from "./page/home/Home";
+import Login from "./page/login/Login";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+  useHistory,
+} from "react-router-dom";
+export default function App() {
+  const [confirmLog, setConfirmLog] = useState(false);
+  const clickLogin = (data) => {
+    console.log(data);
+    setConfirmLog(data);
   };
-  render() {
-    return (
+  return (
+    <Router>
       <div className="app">
-        <div className="taskbar">
-          <TaskBar option={this.option} />
-        </div>
-        <div className="chart">
-          {this.state.isOption === "dashboard" ? (
-            <React.Fragment>
-              <div className="chart-tabel">
-                <ChartHumidity />
-                <ChartTemperature />
-              </div>
-              <div className="chart-control">
-                <ControlChart />
-                <ChartAirHumidity />
-              </div>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <Infor />
-            </React.Fragment>
-          )}
-        </div>
+        <Switch>
+          <Route exact path="/">
+            <Login clickLogin={clickLogin} />
+          </Route>
+          <Route exact path="/control">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
-
-export default App;
