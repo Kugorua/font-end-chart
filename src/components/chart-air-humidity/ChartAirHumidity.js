@@ -29,7 +29,7 @@ export default class ChartAirHumidity extends Component {
           dashArray: [0, 8, 5],
         },
         title: {
-          text: "Page Statistics",
+          text: "ĐỘ Ẩm KHÔNG KHÍ",
           align: "left",
         },
         legend: {

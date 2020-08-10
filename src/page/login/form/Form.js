@@ -56,7 +56,8 @@ export default function Form(props) {
 
     // localStorage.setItem(storageKey, JSON.stringify(users));
   };
-  const Login = () => {
+  const Login = (e) => {
+    console.log(e.target.key);
     let active = false;
     for (let index of JSON.parse(localStorage.getItem(storageKey))) {
       if (index.user === loginUser.user && index.pass === loginUser.pass) {

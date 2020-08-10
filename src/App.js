@@ -20,10 +20,10 @@ export default function App() {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <Login clickLogin={clickLogin} />
+            <Home />
           </Route>
           <Route exact path="/control">
-            <Home />
+            <Login clickLogin={clickLogin} />
           </Route>
         </Switch>
       </div>
